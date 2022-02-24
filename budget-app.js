@@ -7,9 +7,9 @@ export default function App() {
       <Text style={styles.lightText}>Enter Monthly Income:</Text>
       <Text style={styles.heavyText}>$6,245</Text>
       <Text style={styles.lightText}>Current Budget:</Text>
-
+        <View style={{height: 730}}>
           <View style={styles.overallContainer}>
-                <View>
+                <View style={{width: 260}}>
                     <Text style={styles.categoryName}>Bills</Text>
                     <Text style={styles.lightText}>$1,784 Monthly</Text>
                 </View>
@@ -17,9 +17,8 @@ export default function App() {
                     <Text style={styles.percentage}>35%</Text>
                 </View>
           </View>
-
           <View style={styles.overallContainer}>
-                <View>
+                <View style={{width: 260}}>
                     <Text style={styles.categoryName}>Transportation</Text>
                     <Text style={styles.lightText}>$819 Monthly</Text>
                 </View>
@@ -29,7 +28,7 @@ export default function App() {
           </View>
 
           <View style={styles.overallContainer}>
-                <View>
+                <View style={{width: 260}}>
                     <Text style={styles.categoryName}>Health</Text>
                     <Text style={styles.lightText}>$431 Monthly</Text>
                 </View>
@@ -38,9 +37,8 @@ export default function App() {
                 </View>
           </View>
 
-
           <View style={styles.overallContainer}>
-                <View>
+                <View style={{width: 260}}>
                     <Text style={styles.categoryName}>Groceries</Text>
                     <Text style={styles.lightText}>$412 Monthly</Text>
                 </View>
@@ -49,8 +47,39 @@ export default function App() {
                 </View>
           </View>
 
+          <View style={styles.overallContainer}>
+                <View style={{width: 260}}>
+                    <Text style={styles.categoryName}>Entertainment</Text>
+                    <Text style={styles.lightText}>$243 Monthly</Text>
+                </View>
+                <View style={styles.percentageContainer}>
+                    <Text style={styles.percentage}>4%</Text>
+                </View>
+            </View>
+
+            <View style={styles.overallContainer}>
+                <View style={{width: 260}}>
+                    <Text style={styles.categoryName}>Dining</Text>
+                    <Text style={styles.lightText}>$198 Monthly</Text>
+                </View>
+                <View style={styles.percentageContainer}>
+                    <Text style={styles.percentage}>4%</Text>
+                </View>
+            </View>
+
+            <View style={styles.overallContainer}>
+                <View style={{width: 260}}>
+                    <Text style={styles.categoryName}>Other</Text>
+                    <Text style={styles.lightText}>$249 Monthly</Text>
+                </View>
+                <View style={styles.percentageContainer}>
+                    <Text style={styles.percentage}>4%</Text>
+                </View>
+            </View>
+          </View>
+
           <View>
-            <Text style={styles.lightText}>Money Leftover: $115</Text>
+            <Text style={styles.lightText}>Money Leftover: $2,109</Text>
           </View> 
 
       <StatusBar style="auto" />
@@ -80,9 +109,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'left'
   },
-  categoryDollar: {
-    
-  },
   overallContainer: {
     width: 360,
     height: 90,
@@ -91,7 +117,8 @@ const styles = StyleSheet.create({
     borderColor: '#4A4A4A',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    margin: 'auto'
   },
   percentage: {
     margin: 'auto',
