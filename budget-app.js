@@ -1,13 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TextInput } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
+    <ScrollView>
+    <View style={styles.container}>
       <Text style={styles.lightText}>Enter Monthly Income:</Text>
-      <Text style={styles.heavyText}>$6,245</Text>
+      <TextInput style={styles.heavyText}
+      keyboardType='numeric'
+      >$6,245</TextInput>
       <Text style={styles.lightText}>Current Budget:</Text>
-        <View style={{height: 730}}>
+        <View style={{height: 690, justifyContent: 'space-evenly'}}>
           <View style={styles.overallContainer}>
                 <View style={{width: 260}}>
                     <Text style={styles.categoryName}>Bills</Text>
@@ -76,13 +80,12 @@ export default function App() {
                     <Text style={styles.percentage}>4%</Text>
                 </View>
             </View>
-          </View>
-
-          <View>
+        </View>
             <Text style={styles.lightText}>Money Leftover: $2,109</Text>
-          </View> 
-
+            <Text></Text>
       <StatusBar style="auto" />
+    </View>
+      </ScrollView>
     </View>
   );
 }
@@ -93,6 +96,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingTop: 40
   },
   lightText: {
     color: '#909090',
