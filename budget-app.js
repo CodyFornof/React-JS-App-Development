@@ -1,24 +1,40 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ScrollView, TextInput } from 'react-native';
+import React, { useState } from 'react';
 
 export default function App() {
+  const [income, setIncome] = useState(6789);
+  const [billsPercent, setBills] = useState(77);
+
+  var bills = income * (billsPercent * 0.01);
+  bills = bills.toFixed(0);
+
   return (
     <View style={styles.container}>
     <ScrollView>
     <View style={styles.container}>
       <Text style={styles.lightText}>Enter Monthly Income:</Text>
+      <View style={{flexDirection: 'row'}}>
+        <Text style={styles.heavyText}>$</Text>
       <TextInput style={styles.heavyText}
       keyboardType='numeric'
-      >$6,245</TextInput>
+      placeholder='4236'
+      onChangeText={(val) => setIncome(val)}/>
+      </View>
+      
       <Text style={styles.lightText}>Current Budget:</Text>
         <View style={{height: 690, justifyContent: 'space-evenly'}}>
           <View style={styles.overallContainer}>
                 <View style={{width: 260}}>
                     <Text style={styles.categoryName}>Bills</Text>
-                    <Text style={styles.lightText}>$1,784 Monthly</Text>
+                    <Text style={styles.lightText}>${bills} Monthly</Text>
                 </View>
                 <View style={styles.percentageContainer}>
-                    <Text style={styles.percentage}>35%</Text>
+                <TextInput style={styles.percentage}
+                    keyboardType='numeric'
+                    placeholder='35'
+                    onChangeText={(val) => setBills(val)}/>
+                    <Text style={styles.percentage}>%</Text>
                 </View>
           </View>
           <View style={styles.overallContainer}>
@@ -138,6 +154,7 @@ const styles = StyleSheet.create({
     borderWidth: 4,
     borderStyle: 'solid',
     borderColor: '#4A4A4A',
+    flexDirection: 'row',
     margin: 'auto',
     alignItems: 'center',
     justifyContent: 'center'
