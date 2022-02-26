@@ -3,11 +3,44 @@ import { StyleSheet, Text, View, ScrollView, TextInput } from 'react-native';
 import React, { useState } from 'react';
 
 export default function App() {
-  const [income, setIncome] = useState(6789);
-  const [billsPercent, setBills] = useState(77);
+  const [income, setIncome] = useState(4236);
+  const [bills, setBills] = useState(0);
+  const [trans, setTrans] = useState(0);
+  const [health, setHealth] = useState(0);
+  const [grocery, setGrocery] = useState(0);
+  const [rec, setRec] = useState(0);
+  const [dining, setDining] = useState(0);
+  const [other, setOther] = useState(0);
 
-  var bills = income * (billsPercent * 0.01);
-  bills = bills.toFixed(0);
+  var billsPercent = 0;
+  billsPercent = (bills / income) * 100;
+  billsPercent = billsPercent.toFixed(0);
+
+  var transPercent = 0;
+  transPercent = (trans / income) * 100;
+  transPercent = transPercent.toFixed(0);
+
+  var healthPercent = 0;
+  healthPercent = (health / income) * 100;
+  healthPercent = healthPercent.toFixed(0);
+
+  var groceryPercent = 0;
+  groceryPercent = (grocery / income) * 100;
+  groceryPercent = groceryPercent.toFixed(0);
+
+  var recPercent = 0;
+  recPercent = (rec / income) * 100;
+  recPercent = recPercent.toFixed(0);
+
+  var diningPercent = 0;
+  diningPercent = (dining / income) * 100;
+  diningPercent = diningPercent.toFixed(0);
+
+  var otherPercent = 0;
+  otherPercent = (other / income) * 100;
+  otherPercent = otherPercent.toFixed(0);
+
+  var leftover = income - (parseInt(bills) + parseInt(trans) + parseInt(health) + parseInt(grocery) + parseInt(rec) + parseInt(dining) + parseInt(other));
 
   return (
     <View style={styles.container}>
@@ -27,77 +60,122 @@ export default function App() {
           <View style={styles.overallContainer}>
                 <View style={{width: 260}}>
                     <Text style={styles.categoryName}>Bills</Text>
-                    <Text style={styles.lightText}>${bills} Monthly</Text>
+                    <View style={{flexDirection: 'row',}}>
+                      <Text style={styles.lightText}>$</Text>
+                      <TextInput style={styles.lightText}
+                          keyboardType='numeric'
+                          placeholder='0'
+                      onChangeText={(val) => setBills(val)}/>
+                      <Text style={styles.lightText}> Monthly</Text>
+                    </View>
                 </View>
                 <View style={styles.percentageContainer}>
-                <TextInput style={styles.percentage}
-                    keyboardType='numeric'
-                    placeholder='35'
-                    onChangeText={(val) => setBills(val)}/>
-                    <Text style={styles.percentage}>%</Text>
+                    <Text style={styles.percentage}>{billsPercent}%</Text>
                 </View>
           </View>
           <View style={styles.overallContainer}>
                 <View style={{width: 260}}>
                     <Text style={styles.categoryName}>Transportation</Text>
-                    <Text style={styles.lightText}>$819 Monthly</Text>
+                    <View style={{flexDirection: 'row',}}>
+                      <Text style={styles.lightText}>$</Text>
+                      <TextInput style={styles.lightText}
+                          keyboardType='numeric'
+                          placeholder='0'
+                      onChangeText={(val) => setTrans(val)}/>
+                      <Text style={styles.lightText}> Monthly</Text>
+                    </View>
                 </View>
                 <View style={styles.percentageContainer}>
-                    <Text style={styles.percentage}>16%</Text>
+                    <Text style={styles.percentage}>{transPercent}%</Text>
                 </View>
           </View>
 
           <View style={styles.overallContainer}>
                 <View style={{width: 260}}>
                     <Text style={styles.categoryName}>Health</Text>
-                    <Text style={styles.lightText}>$431 Monthly</Text>
+                    <View style={{flexDirection: 'row',}}>
+                      <Text style={styles.lightText}>$</Text>
+                      <TextInput style={styles.lightText}
+                          keyboardType='numeric'
+                          placeholder='0'
+                      onChangeText={(val) => setHealth(val)}/>
+                      <Text style={styles.lightText}> Monthly</Text>
+                    </View>
                 </View>
                 <View style={styles.percentageContainer}>
-                    <Text style={styles.percentage}>8%</Text>
+                    <Text style={styles.percentage}>{healthPercent}%</Text>
                 </View>
           </View>
 
           <View style={styles.overallContainer}>
                 <View style={{width: 260}}>
                     <Text style={styles.categoryName}>Groceries</Text>
-                    <Text style={styles.lightText}>$412 Monthly</Text>
+                    <View style={{flexDirection: 'row',}}>
+                      <Text style={styles.lightText}>$</Text>
+                      <TextInput style={styles.lightText}
+                          keyboardType='numeric'
+                          placeholder='0'
+                      onChangeText={(val) => setGrocery(val)}/>
+                      <Text style={styles.lightText}> Monthly</Text>
+                    </View>
                 </View>
                 <View style={styles.percentageContainer}>
-                    <Text style={styles.percentage}>8%</Text>
+                    <Text style={styles.percentage}>{groceryPercent}%</Text>
                 </View>
           </View>
 
           <View style={styles.overallContainer}>
                 <View style={{width: 260}}>
                     <Text style={styles.categoryName}>Entertainment</Text>
-                    <Text style={styles.lightText}>$243 Monthly</Text>
+                    <View style={{flexDirection: 'row',}}>
+                      <Text style={styles.lightText}>$</Text>
+                      <TextInput style={styles.lightText}
+                          keyboardType='numeric'
+                          placeholder='0'
+                      onChangeText={(val) => setRec(val)}/>
+                      <Text style={styles.lightText}> Monthly</Text>
+                    </View>
                 </View>
                 <View style={styles.percentageContainer}>
-                    <Text style={styles.percentage}>4%</Text>
+                    <Text style={styles.percentage}>{recPercent}%</Text>
                 </View>
             </View>
 
             <View style={styles.overallContainer}>
                 <View style={{width: 260}}>
                     <Text style={styles.categoryName}>Dining</Text>
-                    <Text style={styles.lightText}>$198 Monthly</Text>
+                    <View style={{flexDirection: 'row',}}>
+                      <Text style={styles.lightText}>$</Text>
+                      <TextInput style={styles.lightText}
+                          keyboardType='numeric'
+                          placeholder='0'
+                      onChangeText={(val) => setDining(val)}/>
+                      <Text style={styles.lightText}> Monthly</Text>
+                    </View>
                 </View>
                 <View style={styles.percentageContainer}>
-                    <Text style={styles.percentage}>4%</Text>
+                    <Text style={styles.percentage}>{diningPercent}%</Text>
                 </View>
             </View>
 
             <View style={styles.overallContainer}>
                 <View style={{width: 260}}>
                     <Text style={styles.categoryName}>Other</Text>
-                    <Text style={styles.lightText}>$249 Monthly</Text>
+                    <View style={{flexDirection: 'row',}}>
+                      <Text style={styles.lightText}>$</Text>
+                      <TextInput style={styles.lightText}
+                          keyboardType='numeric'
+                          placeholder='0'
+                      onChangeText={(val) => setOther(val)}/>
+                      <Text style={styles.lightText}> Monthly</Text>
+                    </View>
                 </View>
                 <View style={styles.percentageContainer}>
-                    <Text style={styles.percentage}>4%</Text>
+                    <Text style={styles.percentage}>{otherPercent}%</Text>
                 </View>
             </View>
         </View>
-            <Text style={styles.lightText}>Money Leftover: $2,109</Text>
+            <Text style={styles.lightText}>Money Leftover: ${leftover}</Text>
             <Text></Text>
       <StatusBar style="auto" />
     </View>
